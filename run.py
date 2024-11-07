@@ -28,15 +28,15 @@ async def how_are_u(msg: Message):
     await msg.answer('все в порядке!)')
 
 
-@dp.message(F.photo)                    # ----- работа в фото 
+@dp.message(F.photo)                    # ----- работа c Ответом на фото 
 async def get_photo(msg: Message):
     await msg.answer(f'ID photo: {msg.photo[-1].file_id}')              # ----- индекс минус один, потому что это лучшее качество фото в телеграмме
 
 
 @dp.message(Command('getID'))            # ----- команда дающая айди и имя пользователя, который ее использовал
 async def get_ID(msg: Message):
-    await msg.reply(f'your ID: {msg.from_user.id}\nyour name: {msg.from_user.first_name}') # ---- так же можно доаставать куча инфы с from_user 
-                                                                                           # ----- reply делает так, что бот ОТВЕЧАЕТ на твое сообщение с командой
+    await msg.reply(f'your ID: {msg.from_user.id}\nyour name: {msg.from_user.first_name}') # ---- так же можно доаставать куча инфы с msg.from_user.
+                                                                                           # ----- reply делает так, что бот ОТВЕЧАЕТ на твое сообщение с командой ( и не только )
 
 
 
